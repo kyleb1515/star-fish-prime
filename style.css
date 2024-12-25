@@ -89,22 +89,39 @@ header {
     overflow: hidden;
 }
 
+.logo-container {
+    height: 300px;
+    position: relative;
+    margin: 2rem 0;
+}
+
 .logo {
     width: 300px;
-    margin: 2rem auto;
+    position: absolute;
+    left: 0;
     filter: drop-shadow(0 0 10px rgba(255, 68, 68, 0.5));
+}
+
+.logo-1 {
     animation: slide 8s linear infinite;
+}
+
+.logo-2 {
+    animation: slide 8s linear infinite;
+    animation-delay: -2.6s;
+}
+
+.logo-3 {
+    animation: slide 8s linear infinite;
+    animation-delay: -5.2s;
 }
 
 @keyframes slide {
     0% {
         transform: translateX(-100%);
     }
-    50% {
-        transform: translateX(100%);
-    }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(calc(100% + 1200px));
     }
 }
 

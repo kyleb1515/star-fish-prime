@@ -92,6 +92,28 @@ header {
     width: 300px;
     margin: 2rem auto;
     filter: drop-shadow(0 0 10px rgba(255, 68, 68, 0.5));
+    animation: float 3s ease-in-out infinite, spin 20s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .glass-effect {

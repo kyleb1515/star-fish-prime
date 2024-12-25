@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: #000;
+    min-height: 100vh;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#nuclear-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+header {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #ff4444;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.logo {
+    width: 300px;
+    margin: 2rem auto;
+}
+
+.contract-address {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.contract-address code {
+    font-family: monospace;
+    color: #ff4444;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    background: #ff4444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 2rem 0;
+    transition: transform 0.3s;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}
+
+.tokenomics {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.tokenomics h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.tokenomics-item {
+    padding: 1rem;
+}
+
+.tokenomics-item h3 {
+    color: #ff4444;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+}

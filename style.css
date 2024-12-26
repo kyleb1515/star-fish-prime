@@ -76,10 +76,7 @@ header {
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Optional: adds a green glow */
 }
 
-.logo {
-    width: 200px;
-    height: 200px;
-}
+
 
 .glass-effect {
     background: rgba(0, 0, 0, 0.7);

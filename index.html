@@ -8,6 +8,8 @@
     <title>StarFishPRIME Token</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add Solana Web3 library in head for faster loading -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 </head>
 <body>
     <div class="background-container">
@@ -23,8 +25,8 @@
                 <a href="https://x.com/_StarFishPrime_" target="_blank" class="social-link">Twitter</a>
                 <a href="https://discord.gg/wKmfeMAE" target="_blank" class="social-link">Discord</a>
                 <a href="https://www.tiktok.com/@starfishprimesol" target="_blank" class="social-link">TikTok</a>
-                <a href="https://raydium.io/swap" target="_blank" class="social-link">Raydium</a>
-                <a href="https://dexscreener.com" target="_blank" class="social-link">DexScreener</a>
+                <a href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8" target="_blank" class="social-link">Raydium</a>
+                <a href="https://dexscreener.com/solana/FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8" target="_blank" class="social-link">DexScreener</a>
             </div>
         </nav>
     </header>
@@ -37,29 +39,14 @@
             
             <section class="metrics glass-effect">
                 <div class="metrics-grid">
-                    <div class="metric-item">
-                        <h3>Price</h3>
-                        <p class="glow-text">$0.000001</p>
-                    </div>
-                    <div class="metric-item">
-                        <h3>Market Cap</h3>
-                        <p class="glow-text">$100,000</p>
-                    </div>
-                    <div class="metric-item">
-                        <h3>Liquidity</h3>
-                        <p class="glow-text">$50,000</p>
-                    </div>
-                    <div class="metric-item">
-                        <h3>24h Volume</h3>
-                        <p class="glow-text">$25,000</p>
-                    </div>
+                    <!-- Metrics will be populated by tokenMetrics.js -->
                 </div>
             </section>
 
             <div class="addresses glass-effect">
                 <div class="address-item">
                     <h3>Contract Address</h3>
-                    <code class="glow-text">abc123...def456</code>
+                    <code class="glow-text">FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8</code>
                 </div>
                 <div class="address-item">
                     <h3>Community Wallet</h3>
@@ -67,7 +54,7 @@
                 </div>
             </div>
 
-            <a href="https://raydium.io/swap" target="_blank" class="buy-button glow-effect">BUY NOW</a>
+            <a href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8" target="_blank" class="buy-button glow-effect">BUY NOW</a>
 
             <section class="vision glass-effect">
                 <h2 class="glow-text">The StarFishPRIME Vision</h2>
@@ -87,16 +74,12 @@
             </section>
         </div>
     </main>
-    <!-- Add these before closing body tag -->
-<!-- Replace your current script tags with these -->
 
-<!-- Add this first -->
-<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-<!-- Your metrics script should come after -->
-<script src="tokenMetrics.js"></script>
-<script>
-    // Check if Phantom is installed
-    const isPhantomInstalled = window.phantom?.solana?.isPhantom;
-</script>
+    <!-- Scripts -->
+    <script>
+        // Check if Phantom is installed
+        const isPhantomInstalled = window.phantom?.solana?.isPhantom;
+    </script>
+    <script src="tokenMetrics.js"></script>
 </body>
 </html>

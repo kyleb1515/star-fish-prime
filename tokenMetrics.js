@@ -1,14 +1,15 @@
-// tokenMetrics.js
+// Function to fetch token data from Solana network
 async function getTokenData() {
     try {
-        const connection = new web3.Connection(web3.clusterApiUrl('mainnet-beta'));
-        const tokenMint = new web3.PublicKey('dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD'); // You'll replace this after minting
+        // Fix the web3 initialization
+        const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+        const tokenMint = new solanaWeb3.PublicKey('YOUR_TOKEN_MINT_ADDRESS');
         
         // Get token market data
-        const tokenPrice = 0; // Will be updated with real DEX data
-        const marketCap = 0; // Will be calculated based on price * supply
-        const liquidity = 0; // Will get from DEX pool
-        const volume24h = 0; // Will get from DEX API
+        const tokenPrice = 0; // You'll need to get this from Raydium's API
+        const marketCap = 0; // Calculate based on price * supply
+        const liquidity = 0; // Get from DEX pool
+        const volume24h = 0; // Get from DEX API
         
         return {
             price: tokenPrice,
@@ -22,8 +23,11 @@ async function getTokenData() {
     }
 }
 
+// Function to display metrics
 function displayMetrics(tokenData) {
     const metricsSection = document.querySelector('.metrics-grid');
+    if (!tokenData) return; // Add error handling
+
     metricsSection.innerHTML = `
         <div class="metric-item">
             <h3>Price</h3>

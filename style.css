@@ -51,13 +51,11 @@ header {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Change to red glow */
-
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 .social-link:hover {
-        color: #ff0000; /* Change to red */
-
+    color: #ff0000;
 }
 
 .logo-container {
@@ -72,13 +70,11 @@ header {
 .logo {
     width: 200px;
     height: 200px;
-    border-radius: 50%;  /* This makes it circular */
-    object-fit: cover;   /* This ensures the image fills the circle nicely */
-    background: rgba(0, 0, 0, 0.2); /* Optional: adds a subtle background */
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* Change to red glow */
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
-
-
 
 .glass-effect {
     background: rgba(0, 0, 0, 0.7);
@@ -121,39 +117,35 @@ header {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* For regular text */
 .glow-text {
-    color: #ff0000; /* Change text to red */
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow */
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
-/* For headings */
 .metric-item h3 {
     margin-bottom: 0.5rem;
-    color: #ff0000; /* Change from green to red */
+    color: #ff0000;
 }
 
-/* For the vision heading */
 .vision h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #ff0000; /* Change from green to red */
+    color: #ff0000;
 }
 
-/* For the glow effect animation */
 @keyframes glow {
     from {
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* Red glow */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     }
     to {
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red glow */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
     }
 }
 
 .buy-button {
     display: block;
     padding: 1rem 3rem;
-    background: linear-gradient(45deg, #ff0000, #800000); /* Change to red gradient */
+    background: linear-gradient(45deg, #ff0000, #800000);
     color: white;
     text-decoration: none;
     border-radius: 30px;
@@ -167,7 +159,6 @@ header {
     transform: scale(1.05);
 }
 
-/* Vision Section Styles */
 .vision {
     margin-top: 3rem;
     padding: 2rem;
@@ -205,12 +196,12 @@ header {
     content: '→';
     position: absolute;
     left: 1rem;
-    color: #ff0000; /* Change arrow to red */
+    color: #ff0000;
 }
 
 .disclaimer {
     margin-top: 2rem;
     padding: 1rem;
-    border-left: 3px solid #ff0000; /* Change border to red */
+    border-left: 3px solid #ff0000;
     font-style: italic;
 }

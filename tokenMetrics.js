@@ -1,8 +1,9 @@
 // Initialize Solana connection
 let connection;
 try {
-    connection = new window.solanaWeb3.Connection(
-        'https://api.mainnet-beta.solana.com',
+    // Use solanaWeb3 instead of window.solanaWeb3
+    connection = new solanaWeb3.Connection(
+        solanaWeb3.clusterApiUrl('mainnet-beta'),
         'confirmed'
     );
 } catch (error) {
@@ -11,12 +12,10 @@ try {
 
 async function getTokenData() {
     try {
-        if (!window.solanaWeb3) {
-            console.error('Solana Web3 not loaded');
-            return null;
-        }
+        // Create PublicKey using solanaWeb3 instead of window.solanaWeb3
+        const tokenMintAddress = new solanaWeb3.PublicKey('dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD');
         
-        const tokenMintAddress = 'dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD';
+        // Rest of your code...
         
         // Get price data from Raydium
         const priceResponse = await fetch(`https://api.raydium.io/v2/main/price?token_list=[${tokenMintAddress}]`);

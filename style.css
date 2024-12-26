@@ -1,53 +1,67 @@
-/* Add these styles to your existing CSS file */
+/* Add these updated styles for better readability */
 
 .vision {
     margin-top: 2rem;
-    padding: 2rem;
+    padding: 2.5rem;
     text-align: left;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    background: rgba(0, 0, 0, 0.85); /* Darker background for better contrast */
+    border: 1px solid rgba(0, 255, 0, 0.3); /* Subtle green border */
 }
 
 .vision h2 {
     text-align: center;
     margin-bottom: 1.5rem;
     font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Enhanced glow for header */
 }
 
 .vision-content {
-    color: #fff;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: #e0e0e0; /* Lighter text color */
+    font-size: 1.2rem; /* Slightly larger text */
+    line-height: 1.8; /* Increased line height */
+    letter-spacing: 0.02em; /* Slightly increased letter spacing */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); /* Subtle text glow */
 }
 
 .vision-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400; /* Medium weight for better readability */
 }
 
 .vision-content ul {
     list-style: none;
     padding-left: 1rem;
-    margin-bottom: 1.5rem;
+    margin: 2rem 0;
 }
 
 .vision-content li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
     position: relative;
+    background: rgba(0, 255, 0, 0.05); /* Very subtle green background */
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border-radius: 4px;
 }
 
 .vision-content li:before {
     content: '→';
     position: absolute;
-    left: 0;
+    left: 1rem;
     color: #00ff00;
+    text-shadow: 0 0 5px #00ff00; /* Glowing arrow */
 }
 
 .disclaimer {
     font-style: italic;
     border-left: 3px solid #00ff00;
-    padding-left: 1rem;
-    margin-top: 1.5rem;
-    color: #cccccc;
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    color: #ffffff; /* Brighter white for important text */
+    background: rgba(255, 255, 255, 0.05); /* Subtle highlight */
+    border-radius: 0 4px 4px 0;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 }

@@ -95,12 +95,13 @@ header {
 }
 
 .metric-item h3 {
-margin-bottom: 0.5rem;
-    color: #ff0000;
+ margin-bottom: 0.5rem;
+    color: #00ff00;
     text-shadow: 
-        0 0 7px #ff0000,
-        0 0 10px #ff0000,
-        0 0 21px #ff0000;
+        0 0 7px #00ff00,
+        0 0 10px #00ff00,
+        0 0 21px #00ff00,
+        0 0 42px #00ff00;
 }
 
 .addresses {

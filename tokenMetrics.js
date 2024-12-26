@@ -1,63 +1,85 @@
-// Function to fetch token data from Solana network
+// Initialize Solana connection using the global solanaWeb3 object
+const connection = new solanaWeb3.Connection(
+    'https://api.mainnet-beta.solana.com',
+    'confirmed'
+);
+
 async function getTokenData() {
     try {
-        // Fix the web3 initialization
-        const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
-        const tokenMint = new solanaWeb3.PublicKey('YOUR_TOKEN_MINT_ADDRESS');
+        // Replace with your actual token mint address
+        const tokenMintAddress = new solanaWeb3.PublicKey('YOUR_TOKEN_ADDRESS_HERE');
         
-        // Get token market data
-        const tokenPrice = 0; // You'll need to get this from Raydium's API
-        const marketCap = 0; // Calculate based on price * supply
-        const liquidity = 0; // Get from DEX pool
-        const volume24h = 0; // Get from DEX API
-        
+        // Get token supply info
+        const tokenSupply = await connection.getTokenSupply(tokenMintAddress);
+        console.log("Token supply:", tokenSupply);
+
+        // For now, let's return mock data until we integrate Raydium API
         return {
-            price: tokenPrice,
-            marketCap: marketCap,
-            liquidity: liquidity,
-            volume24h: volume24h
+            price: 0.000001,
+            marketCap: 100000,
+            liquidity: 50000,
+            volume24h: 25000
         };
+        
     } catch (error) {
-        console.error('Error fetching token data:', error);
-        return null;
+        console.error('Error in getTokenData:', error);
+        // Return default values if there's an error
+        return {
+            price: 0,
+            marketCap: 0,
+            liquidity: 0,
+            volume24h: 0
+        };
     }
 }
 
-// Function to display metrics
 function displayMetrics(tokenData) {
-    const metricsSection = document.querySelector('.metrics-grid');
-    if (!tokenData) return; // Add error handling
+    try {
+        const metricsSection = document.querySelector('.metrics-grid');
+        if (!metricsSection) {
+            console.error('Metrics section not found');
+            return;
+        }
 
-    metricsSection.innerHTML = `
-        <div class="metric-item">
-            <h3>Price</h3>
-            <p class="glow-text">$${tokenData.price.toFixed(7)}</p>
-        </div>
-        <div class="metric-item">
-            <h3>Market Cap</h3>
-            <p class="glow-text">$${tokenData.marketCap.toLocaleString()}</p>
-        </div>
-        <div class="metric-item">
-            <h3>Liquidity</h3>
-            <p class="glow-text">$${tokenData.liquidity.toLocaleString()}</p>
-        </div>
-        <div class="metric-item">
-            <h3>24h Volume</h3>
-            <p class="glow-text">$${tokenData.volume24h.toLocaleString()}</p>
-        </div>
-    `;
+        metricsSection.innerHTML = `
+            <div class="metric-item">
+                <h3>Price</h3>
+                <p class="glow-text">$${Number(tokenData.price).toFixed(7)}</p>
+            </div>
+            <div class="metric-item">
+                <h3>Market Cap</h3>
+                <p class="glow-text">$${Number(tokenData.marketCap).toLocaleString()}</p>
+            </div>
+            <div class="metric-item">
+                <h3>Liquidity</h3>
+                <p class="glow-text">$${Number(tokenData.liquidity).toLocaleString()}</p>
+            </div>
+            <div class="metric-item">
+                <h3>24h Volume</h3>
+                <p class="glow-text">$${Number(tokenData.volume24h).toLocaleString()}</p>
+            </div>
+        `;
+    } catch (error) {
+        console.error('Error in displayMetrics:', error);
+    }
 }
 
-// Update metrics every 30 seconds
 async function updateMetrics() {
-    const tokenData = await getTokenData();
-    if (tokenData) {
-        displayMetrics(tokenData);
+    try {
+        const tokenData = await getTokenData();
+        if (tokenData) {
+            displayMetrics(tokenData);
+        }
+    } catch (error) {
+        console.error('Error in updateMetrics:', error);
     }
 }
 
 // Initial load
-updateMetrics();
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing metrics...');
+    updateMetrics();
+});
 
 // Update every 30 seconds
 setInterval(updateMetrics, 30000);

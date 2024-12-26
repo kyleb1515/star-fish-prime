@@ -89,14 +89,13 @@
     </main>
     <!-- Add these before closing body tag -->
 <!-- Replace your current script tags with these -->
-<script>
-    window.onload = () => {
-        if (!window.solanaWeb3) {
-            console.error('Solana Web3 not loaded properly');
-        }
-    }
-</script>
-<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+
 <script src="tokenMetrics.js"></script>
+    <!-- Add this before your tokenMetrics.js script -->
+<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<script>
+    // Check if Phantom is installed
+    const isPhantomInstalled = window.phantom?.solana?.isPhantom;
+</script>
 </body>
 </html>

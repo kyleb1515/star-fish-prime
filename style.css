@@ -51,11 +51,13 @@ header {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Change to red glow */
+
 }
 
 .social-link:hover {
-    color: #00ff00;
+        color: #ff0000; /* Change to red */
+
 }
 
 .logo-container {
@@ -73,7 +75,7 @@ header {
     border-radius: 50%;  /* This makes it circular */
     object-fit: cover;   /* This ensures the image fills the circle nicely */
     background: rgba(0, 0, 0, 0.2); /* Optional: adds a subtle background */
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Optional: adds a green glow */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* Change to red glow */
 }
 
 
@@ -119,23 +121,39 @@ header {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
+/* For regular text */
 .glow-text {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    color: #ff0000; /* Change text to red */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow */
 }
 
+/* For headings */
+.metric-item h3 {
+    margin-bottom: 0.5rem;
+    color: #ff0000; /* Change from green to red */
+}
+
+/* For the vision heading */
+.vision h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff0000; /* Change from green to red */
+}
+
+/* For the glow effect animation */
 @keyframes glow {
     from {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* Red glow */
     }
     to {
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red glow */
     }
 }
 
 .buy-button {
     display: inline-block;
     padding: 1rem 3rem;
-    background: linear-gradient(45deg, #00ff00, #008000);
+    background: linear-gradient(45deg, #ff0000, #800000); /* Change to red gradient */
     color: white;
     text-decoration: none;
     border-radius: 30px;
@@ -186,12 +204,12 @@ header {
     content: '→';
     position: absolute;
     left: 1rem;
-    color: #00ff00;
+    color: #ff0000; /* Change arrow to red */
 }
 
 .disclaimer {
     margin-top: 2rem;
     padding: 1rem;
-    border-left: 3px solid #00ff00;
+    border-left: 3px solid #ff0000; /* Change border to red */
     font-style: italic;
 }

@@ -16,19 +16,28 @@ async function getTokenData() {
             return null;
         }
         
-        // Replace with your actual token mint address
-        const tokenMintAddress = new window.solanaWeb3.PublicKey('YOUR_TOKEN_ADDRESS_HERE');
+        const tokenMintAddress = 'dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD';
         
-        // Get token supply info
-        const tokenSupply = await connection.getTokenSupply(tokenMintAddress);
-        console.log("Token supply:", tokenSupply);
-
-        // For now, return mock data until we integrate Raydium API
+        // Get price data from Raydium
+        const priceResponse = await fetch(`https://api.raydium.io/v2/main/price?token_list=[${tokenMintAddress}]`);
+        const priceData = await priceResponse.json();
+        
+        // Get pool data
+        const poolsResponse = await fetch(`https://api.raydium.io/v2/main/pools?token_list=[${tokenMintAddress}]`);
+        const poolData = await poolsResponse.json();
+        
+        // Get token supply (from your existing RPC connection)
+        const tokenSupply = await connection.getTokenSupply(new window.solanaWeb3.PublicKey(tokenMintAddress));
+        
+        const price = priceData[tokenMintAddress]?.price || 0;
+        const supply = tokenSupply.value.uiAmount;
+        const marketCap = price * supply;
+        
         return {
-            price: 0.000001,
-            marketCap: 100000,
-            liquidity: 50000,
-            volume24h: 25000
+            price: price,
+            marketCap: marketCap,
+            liquidity: poolData[tokenMintAddress]?.liquidity || 0,
+            volume24h: poolData[tokenMintAddress]?.volume24h || 0
         };
         
     } catch (error) {

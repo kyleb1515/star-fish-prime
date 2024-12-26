@@ -1,1 +1,241 @@
-// Same CSS content as above but encoded in base64
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    background-color: black;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.explosion-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+header {
+    padding: 1rem;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.social-link:hover {
+    color: #00ff00;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.logo-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 2rem;
+    perspective: 1000px;
+}
+
+.logo {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    transform-style: preserve-3d;
+}
+
+.logo-1 { 
+    top: 0;
+    animation: nuclearpulse 4s infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7));
+}
+
+.logo-2 { 
+    top: 50px;
+    opacity: 0.7;
+    animation: nuclearpulse 4s infinite 0.5s;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.5));
+}
+
+.logo-3 { 
+    top: 100px;
+    opacity: 0.4;
+    animation: nuclearpulse 4s infinite 1s;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.3));
+}
+
+@keyframes nuclearpulse {
+    0% {
+        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(1);
+    }
+    25% {
+        transform: translateX(-60%) rotateY(15deg) rotateX(5deg) scale(1.1);
+    }
+    50% {
+        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(0.95);
+    }
+    75% {
+        transform: translateX(-40%) rotateY(-15deg) rotateX(-5deg) scale(1.1);
+    }
+    100% {
+        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(1);
+    }
+}
+
+.logo:hover {
+    animation-play-state: paused;
+}
+
+.glass-effect {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metrics {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.metric-item h3 {
+    margin-bottom: 0.5rem;
+    color: #00ff00;
+}
+
+.addresses {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.address-item {
+    margin-bottom: 1rem;
+}
+
+.address-item h3 {
+    color: #00ff00;
+    margin-bottom: 0.5rem;
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glow-text {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(45deg, #00ff00, #008000);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}
+
+/* Vision Section Styles */
+.vision {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: left;
+}
+
+.vision h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #00ff00;
+}
+
+.vision-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.vision-content p {
+    margin-bottom: 1.5rem;
+}
+
+.vision-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.vision-content li {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    position: relative;
+}
+
+.vision-content li:before {
+    content: '→';
+    position: absolute;
+    left: 1rem;
+    color: #00ff00;
+}
+
+.disclaimer {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-left: 3px solid #00ff00;
+    font-style: italic;
+}

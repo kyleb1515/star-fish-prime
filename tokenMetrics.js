@@ -1,17 +1,11 @@
 // Initialize Solana connection
 let connection;
 
-// Wait for window.solana to be available
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        // Check if web3 library is loaded
-        if (typeof solanaWeb3 === 'undefined') {
-            console.error('Solana Web3 library not loaded');
-            return;
-        }
-
+        // Using a different RPC endpoint
         connection = new solanaWeb3.Connection(
-            'https://api.mainnet-beta.solana.com',
+            'https://solana-mainnet.g.alchemy.com/v2/demo',  // Alternative public endpoint
             'confirmed'
         );
         
@@ -22,20 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error initializing Solana connection:', error);
     }
 });
-
-// Rest of your code remains the same...
-
-    // Check for Phantom Wallet
-    if (!window.phantom?.solana?.isPhantom) {
-        throw new Error('Please install Phantom wallet');
-    }
-
-    // Get Phantom Provider
-    const provider = window.phantom?.solana;
-
-} catch (error) {
-    console.error('Error initializing Solana connection:', error);
-}
 
 async function getTokenData() {
     try {
@@ -49,12 +29,11 @@ async function getTokenData() {
         const priceResponse = await fetch(`https://api.raydium.io/v2/main/price?token_list=[${tokenMintAddress}]`);
         const priceData = await priceResponse.json();
         
-        // For now, return mock data until we integrate Raydium API fully
         return {
-            price: priceData[tokenMintAddress]?.price || 0.000001,
-            marketCap: 100000,
-            liquidity: 50000,
-            volume24h: 25000
+            price: priceData[tokenMintAddress]?.price || 0,
+            marketCap: tokenSupply ? tokenSupply.value.uiAmount * (priceData[tokenMintAddress]?.price || 0) : 0,
+            liquidity: priceData[tokenMintAddress]?.liquidity || 0,
+            volume24h: priceData[tokenMintAddress]?.volume24h || 0
         };
         
     } catch (error) {

@@ -1,45 +1,29 @@
-// Initialize Solana connection
-let connection;
-
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        // Check if web3 library is loaded
-        if (typeof solanaWeb3 === 'undefined') {
-            console.error('Solana Web3 library not loaded');
-            return;
-        }
-
-        // Using a different RPC endpoint
-        connection = new solanaWeb3.Connection(
-            'https://solana-mainnet.g.alchemy.com/v2/demo',  // Alternative public endpoint
-            'confirmed'
-        );
-        
-        // Start updating metrics
-        updateMetrics();
-        
-    } catch (error) {
-        console.error('Error initializing Solana connection:', error);
-    }
-});
-
+// Initialize token data fetching
 async function getTokenData() {
     try {
-        const tokenMintAddress = new solanaWeb3.PublicKey('FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8');
+        const tokenAddress = 'FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8';
         
-        // Get token supply info
-        const tokenSupply = await connection.getTokenSupply(tokenMintAddress);
-        console.log("Token supply:", tokenSupply);
-
-        // Get Raydium price data
-        const priceResponse = await fetch(`https://api.raydium.io/v2/main/price?token_list=[${tokenMintAddress}]`);
-        const priceData = await priceResponse.json();
+        // Fetch data from DexScreener API
+        const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`);
+        const data = await response.json();
+        
+        // Get the first pair (usually the main trading pair)
+        const mainPair = data.pairs?.[0];
+        
+        if (mainPair) {
+            return {
+                price: parseFloat(mainPair.priceUsd) || 0,
+                marketCap: parseFloat(mainPair.fdv) || 0,
+                liquidity: parseFloat(mainPair.liquidity?.usd) || 0,
+                volume24h: parseFloat(mainPair.volume?.h24) || 0
+            };
+        }
         
         return {
-            price: priceData[tokenMintAddress]?.price || 0,
-            marketCap: tokenSupply ? tokenSupply.value.uiAmount * (priceData[tokenMintAddress]?.price || 0) : 0,
-            liquidity: priceData[tokenMintAddress]?.liquidity || 0,
-            volume24h: priceData[tokenMintAddress]?.volume24h || 0
+            price: 0,
+            marketCap: 0,
+            liquidity: 0,
+            volume24h: 0
         };
         
     } catch (error) {
@@ -94,6 +78,12 @@ async function updateMetrics() {
         console.error('Error in updateMetrics:', error);
     }
 }
+
+// Initial load
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing metrics...');
+    updateMetrics();
+});
 
 // Update every 30 seconds
 setInterval(updateMetrics, 30000);

@@ -65,11 +65,11 @@ header {
     text-align: center;
 }
 
+/* ONLY MODIFYING LOGO STYLES BELOW THIS LINE */
 .logo-container {
     position: relative;
     height: 300px;
     margin-bottom: 2rem;
-    perspective: 1000px;
 }
 
 .logo {
@@ -77,50 +77,48 @@ header {
     width: 200px;
     height: 200px;
     left: 50%;
-    transform-style: preserve-3d;
+    transform-origin: center;
 }
 
 .logo-1 { 
     top: 0;
-    animation: nuclearpulse 4s infinite;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7));
+    animation: chaos1 3s infinite;
 }
 
 .logo-2 { 
     top: 50px;
     opacity: 0.7;
-    animation: nuclearpulse 4s infinite 0.5s;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.5));
+    animation: chaos2 3.5s infinite;
 }
 
 .logo-3 { 
     top: 100px;
     opacity: 0.4;
-    animation: nuclearpulse 4s infinite 1s;
-    filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.3));
+    animation: chaos3 4s infinite;
 }
 
-@keyframes nuclearpulse {
-    0% {
-        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(1);
-    }
-    25% {
-        transform: translateX(-60%) rotateY(15deg) rotateX(5deg) scale(1.1);
-    }
-    50% {
-        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(0.95);
-    }
-    75% {
-        transform: translateX(-40%) rotateY(-15deg) rotateX(-5deg) scale(1.1);
-    }
-    100% {
-        transform: translateX(-50%) rotateY(0deg) rotateX(0deg) scale(1);
-    }
+@keyframes chaos1 {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-70%) rotate(5deg); }
+    50% { transform: translateX(-30%) rotate(-5deg); }
+    75% { transform: translateX(-60%) rotate(3deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
 }
 
-.logo:hover {
-    animation-play-state: paused;
+@keyframes chaos2 {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    30% { transform: translateX(-35%) rotate(-7deg); }
+    60% { transform: translateX(-65%) rotate(7deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
 }
+
+@keyframes chaos3 {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    33% { transform: translateX(-60%) rotate(10deg); }
+    66% { transform: translateX(-40%) rotate(-10deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+/* ONLY MODIFIED LOGO STYLES ABOVE THIS LINE */
 
 .glass-effect {
     background: rgba(0, 0, 0, 0.7);

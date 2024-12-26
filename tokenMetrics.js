@@ -3,6 +3,12 @@ let connection;
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
+        // Check if web3 library is loaded
+        if (typeof solanaWeb3 === 'undefined') {
+            console.error('Solana Web3 library not loaded');
+            return;
+        }
+
         // Using a different RPC endpoint
         connection = new solanaWeb3.Connection(
             'https://solana-mainnet.g.alchemy.com/v2/demo',  // Alternative public endpoint
@@ -88,12 +94,6 @@ async function updateMetrics() {
         console.error('Error in updateMetrics:', error);
     }
 }
-
-// Initial load
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing metrics...');
-    updateMetrics();
-});
 
 // Update every 30 seconds
 setInterval(updateMetrics, 30000);

@@ -70,6 +70,7 @@ header {
     position: relative;
     height: 300px;
     margin-bottom: 2rem;
+    perspective: 1000px;
 }
 
 .logo {
@@ -82,41 +83,44 @@ header {
 
 .logo-1 { 
     top: 0;
-    animation: chaos1 3s infinite;
+    animation: chaos1 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-2 { 
     top: 50px;
     opacity: 0.7;
-    animation: chaos2 3.5s infinite;
+    animation: chaos2 7s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-3 { 
     top: 100px;
     opacity: 0.4;
-    animation: chaos3 4s infinite;
+    animation: chaos3 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes chaos1 {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    25% { transform: translateX(-70%) rotate(5deg); }
-    50% { transform: translateX(-30%) rotate(-5deg); }
-    75% { transform: translateX(-60%) rotate(3deg); }
-    100% { transform: translateX(-50%) rotate(0deg); }
+    0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+    20% { transform: translateX(-120%) rotate(45deg) scale(1.2); }
+    40% { transform: translateX(20%) rotate(-90deg) scale(0.8); }
+    60% { transform: translateX(-70%) rotate(180deg) scale(1.1); }
+    80% { transform: translateX(0%) rotate(-45deg) scale(0.9); }
+    100% { transform: translateX(-50%) rotate(0deg) scale(1); }
 }
 
 @keyframes chaos2 {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    30% { transform: translateX(-35%) rotate(-7deg); }
-    60% { transform: translateX(-65%) rotate(7deg); }
-    100% { transform: translateX(-50%) rotate(0deg); }
+    0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+    25% { transform: translateX(0%) rotate(-120deg) scale(0.7); }
+    50% { transform: translateX(-100%) rotate(90deg) scale(1.3); }
+    75% { transform: translateX(-25%) rotate(-180deg) scale(0.8); }
+    100% { transform: translateX(-50%) rotate(0deg) scale(1); }
 }
 
 @keyframes chaos3 {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    33% { transform: translateX(-60%) rotate(10deg); }
-    66% { transform: translateX(-40%) rotate(-10deg); }
-    100% { transform: translateX(-50%) rotate(0deg); }
+    0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+    30% { transform: translateX(-90%) rotate(135deg) scale(1.1); }
+    55% { transform: translateX(10%) rotate(-225deg) scale(0.9); }
+    80% { transform: translateX(-30%) rotate(45deg) scale(1.2); }
+    100% { transform: translateX(-50%) rotate(0deg) scale(1); }
 }
 /* ONLY MODIFIED LOGO STYLES ABOVE THIS LINE */
 

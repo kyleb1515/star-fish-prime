@@ -20,7 +20,7 @@ try {
 
 async function getTokenData() {
     try {
-        const tokenMintAddress = new solanaWeb3.PublicKey('dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD');
+        const tokenMintAddress = new solanaWeb3.PublicKey('FQ1tyso61AH1tzodyJfSwmzsD3GToybbRNoZxUBz21p8');
         
         // Get token supply info
         const tokenSupply = await connection.getTokenSupply(tokenMintAddress);

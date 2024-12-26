@@ -58,14 +58,6 @@ header {
     color: #00ff00;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-/* Logo styles */
 .logo-container {
     position: relative;
     display: flex;
@@ -73,6 +65,15 @@ header {
     align-items: center;
     height: 300px;
     margin-bottom: 2rem;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;  /* This makes it circular */
+    object-fit: cover;   /* This ensures the image fills the circle nicely */
+    background: rgba(0, 0, 0, 0.2); /* Optional: adds a subtle background */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Optional: adds a green glow */
 }
 
 .logo {

@@ -1,10 +1,29 @@
 // Initialize Solana connection
 let connection;
-try {
-    connection = new solanaWeb3.Connection(
-        'https://api.mainnet-beta.solana.com',
-        'confirmed'
-    );
+
+// Wait for window.solana to be available
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Check if web3 library is loaded
+        if (typeof solanaWeb3 === 'undefined') {
+            console.error('Solana Web3 library not loaded');
+            return;
+        }
+
+        connection = new solanaWeb3.Connection(
+            'https://api.mainnet-beta.solana.com',
+            'confirmed'
+        );
+        
+        // Start updating metrics
+        updateMetrics();
+        
+    } catch (error) {
+        console.error('Error initializing Solana connection:', error);
+    }
+});
+
+// Rest of your code remains the same...
 
     // Check for Phantom Wallet
     if (!window.phantom?.solana?.isPhantom) {

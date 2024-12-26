@@ -160,6 +160,9 @@ header {
     font-weight: bold;
     margin-top: 2rem;
     transition: transform 0.3s ease;
+    display: block;  /* Change from inline-block to block */
+    margin: 2rem auto; /* This centers it horizontally and keeps vertical margin */
+    width: fit-content; /* This ensures the button only takes up as much width as it needs */
 }
 
 .buy-button:hover {

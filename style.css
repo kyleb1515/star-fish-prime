@@ -215,17 +215,3 @@ header {
 }
 
 
-/* This will target all text elements except those in the header */
-body :not(header) {
-    color: #ff0000 !important; /* bright red */
-    text-shadow: 
-        0 0 7px #ff0000,
-        0 0 10px #ff0000,
-        0 0 21px #ff0000 !important; /* creates the glow effect */
-}
-
-/* Keep header text white */
-header, header * {
-    color: white !important;
-    text-shadow: none !important;
-}

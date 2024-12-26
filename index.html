@@ -90,9 +90,10 @@
     <!-- Add these before closing body tag -->
 <!-- Replace your current script tags with these -->
 
-<script src="tokenMetrics.js"></script>
-    <!-- Add this before your tokenMetrics.js script -->
+<!-- Add this first -->
 <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<!-- Your metrics script should come after -->
+<script src="tokenMetrics.js"></script>
 <script>
     // Check if Phantom is installed
     const isPhantomInstalled = window.phantom?.solana?.isPhantom;

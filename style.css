@@ -78,11 +78,35 @@ header {
     left: 50%;
     transform: translateX(-50%);
     transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
 }
 
-.logo-1 { top: 0; }
-.logo-2 { top: 50px; opacity: 0.7; }
-.logo-3 { top: 100px; opacity: 0.4; }
+.logo-1 { 
+    top: 0; 
+    animation-delay: 0s;
+}
+.logo-2 { 
+    top: 50px; 
+    opacity: 0.7; 
+    animation-delay: 0.2s;
+}
+.logo-3 { 
+    top: 100px; 
+    opacity: 0.4; 
+    animation-delay: 0.4s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-50%) translateX(-10px);
+    }
+    50% {
+        transform: translateX(-50%) translateX(10px);
+    }
+    100% {
+        transform: translateX(-50%) translateX(-10px);
+    }
+}
 
 .logo:hover {
     transform: translateX(-50%) scale(1.1);
@@ -156,4 +180,52 @@ header {
 
 .buy-button:hover {
     transform: scale(1.05);
+}
+
+/* Vision Section Styles */
+.vision {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: left;
+}
+
+.vision h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #00ff00;
+}
+
+.vision-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.vision-content p {
+    margin-bottom: 1.5rem;
+}
+
+.vision-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.vision-content li {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    position: relative;
+}
+
+.vision-content li:before {
+    content: '→';
+    position: absolute;
+    left: 1rem;
+    color: #00ff00;
+}
+
+.disclaimer {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-left: 3px solid #00ff00;
+    font-style: italic;
 }

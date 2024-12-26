@@ -68,16 +68,16 @@ header {
 /* Logo styles */
 .logo-container {
     position: relative;
-    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
     margin-bottom: 2rem;
 }
 
 .logo {
-    position: absolute;
     width: 200px;
     height: 200px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .glass-effect {

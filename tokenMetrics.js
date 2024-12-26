@@ -2,7 +2,7 @@
 async function getTokenData() {
     try {
         const connection = new web3.Connection(web3.clusterApiUrl('mainnet-beta'));
-        const tokenMint = new web3.PublicKey('YOUR_TOKEN_MINT_ADDRESS'); // You'll replace this after minting
+        const tokenMint = new web3.PublicKey('dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD'); // You'll replace this after minting
         
         // Get token market data
         const tokenPrice = 0; // Will be updated with real DEX data

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Update every 30 seconds
 setInterval(updateMetrics, 30000);
 
-function copyText(text) {
+function copyText(text, event) {
     navigator.clipboard.writeText(text).then(() => {
         // Optional: Change button text temporarily to show it worked
         const button = event.target;

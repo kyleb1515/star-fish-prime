@@ -100,12 +100,23 @@ header {
 }
 
 .addresses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;  /* This centers the container horizontally */
+    width: 80%;      /* Adjust this value as needed */
     padding: 2rem;
-    margin-bottom: 2rem;
 }
 
 .address-item {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.address-item code {
+    word-break: break-all;  /* This ensures long addresses wrap properly */
 }
 
 .address-item h3 {

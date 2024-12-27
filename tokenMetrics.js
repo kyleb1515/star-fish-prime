@@ -1,7 +1,7 @@
 // Initialize token data fetching
 async function getTokenData() {
     try {
-        const tokenAddress = 'dfpRGT9zgxUgi2sHP3Mj6geZhFDfJJxaRqbWDFFysmD';
+        const tokenAddress = 'ErsskXC5vUKXPN8SWNLTHMDjjTYBe33jcwGdNe3Hpump';
         
         // Fetch data from DexScreener API
         const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`);

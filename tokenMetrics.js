@@ -87,3 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Update every 30 seconds
 setInterval(updateMetrics, 30000);
+
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Optional: Change button text temporarily to show it worked
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}

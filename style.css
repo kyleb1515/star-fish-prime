@@ -113,6 +113,8 @@ header {
 .address-item {
     margin: 1rem 0;
     width: 100%;
+        text-align: center;  /* Add this line */
+
 }
 
 .address-item code {
@@ -121,7 +123,8 @@ header {
 
 .address-item h3 {
     color: #white;
-    margin-bottom: 0.5rem;
+     text-align: center;  /* Add this line */
+    margin-bottom: 1rem;
 }
 
 .glow-effect {
@@ -219,6 +222,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
+     width: 100%;        /* Add this line */
+    text-align: center;
 }
 
 .copy-button {
